@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://obstacles/obstacle1.msh" type="Mesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+
+points = Vector3Array( 1.75547, -0.479733, 0.5, 1.75547, -0.479733, -0.5, 0.635408, -0.255385, 0.5, 0.635408, -0.255385, -0.5, 0.137015, -0.258957, 0.5, 0.137015, -0.258957, -0.5, -0.897077, -0.475845, 0.5, -0.897077, -0.475845, -0.5 )
+
+[node name="SpeedBreaker" type="Spatial"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.138357, 0, 0, 0, 0.138357, 0, 0, 0, 0.138357, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.635678, -2.7015, 3.70971 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+mesh/mesh = ExtResource( 1 )
+mesh/skeleton = NodePath("..")
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+input/ray_pickable = true
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Transform( 0.999986, -0.00529181, 0, 0.00529181, 0.999986, 0, 0, 0, 4.5, 0.293338, 3.38414, -3.75609 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="MeshInstance/StaticBody"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.999986, -0.00529181, 0, 0.00529181, 0.999986, 0, 0, 0, 4.5, 0.293338, 3.38414, -3.75609 )
+build_mode = 0
+depth = 1.0
+polygon = Vector2Array( 1.75547, -0.479733, 0.635408, -0.255385, 0.137015, -0.258957, -0.897077, -0.475845 )
+shape_range = Vector2( 0, 0 )
+
+
